@@ -5,4 +5,5 @@ public class Constants {
 	 * 每页显示条数
 	 */
 public static final int PAGESIZE=10;
+public int a ;
 }
