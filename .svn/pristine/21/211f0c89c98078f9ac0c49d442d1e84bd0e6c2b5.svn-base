@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动 -->
+	<classPathEntry
+		location="J:\ojdbc6-11.2.0.1.0.jar" />
+
+	<context id="context1">
+		<!-- 数据库的连接信息 -->
+		<jdbcConnection connectionURL="jdbc:oracle:thin:@localhost:1521:XE"
+			driverClass="oracle.jdbc.driver.OracleDriver" password="123456"
+			userId="jk" />
+		<!-- 实体类 -->
+		<javaModelGenerator targetPackage="com.lanou.entity"
+			targetProject="lanoujk/src/main/java" />
+		<!-- mapper.xml的生成 -->
+		<sqlMapGenerator targetPackage="com.lanou.mapper"
+			targetProject="lanoujk/src/main/java" />
+		<!-- mapper接口 -->
+		<javaClientGenerator targetPackage="com.lanou.mapper"
+			targetProject="lanoujk/src/main/java" type="XMLMAPPER" />
+
+		<!-- 数据库表 tableName表名 domainObjectName 类名 -->
+		<table tableName="CONTRACT_C" domainObjectName="Contract"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CONTRACT_HIS_C" domainObjectName="Contracthis"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CONTRACT_PRODUCT_C" domainObjectName="Contractproduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="CONTRACT_PRODUCT_HIS_C" domainObjectName="Contractproducthis"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="EXPORT_C" domainObjectName="Export"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="EXPORT_PRODUCT_C" domainObjectName="Exportproduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="EXT_CPRODUCT_C" domainObjectName="Extcproduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="EXT_CPRODUCT_HIS_C" domainObjectName="Extcproducthis"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="EXT_EPRODUCT_C" domainObjectName="Exteproduct"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="PACKING_LIST_C" domainObjectName="Eackinglist"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SYS_CODE_B" domainObjectName="Syscode"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FACTORY_C" domainObjectName="Factory"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="FINANCE_C" domainObjectName="Finance"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="LOGIN_LOG_P" domainObjectName="Loginlog"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="SHIPPING_ORDER_C" domainObjectName="Shippingorder"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="INVOICE_C" domainObjectName="Invoice"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+		<table tableName="AUTH_USER_P" domainObjectName="Authuser"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false"></table>
+
+
+	</context>
+</generatorConfiguration>

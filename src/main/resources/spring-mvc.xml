@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans    
+                        http://www.springframework.org/schema/beans/spring-beans.xsd    
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context.xsd  
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<!-- 激活Bean中定义的注解 -->
+	<context:annotation-config />
+	<!-- 启动自动扫描该包下所有的Bean(例如@Controller) -->
+	<context:component-scan base-package="com.lanou.controller"
+		annotation-config="true" />
+
+
+
+	<!-- 注解生成json 2需要导入jar -->
+	<mvc:annotation-driven>
+		<mvc:message-converters>
+			<!-- 防止@ResponseBody 返回的数据有乱码 默认是IOS8859-1 -->
+			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+				<constructor-arg value="UTF-8" />
+			</bean>
+
+			<bean
+				class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+				<!-- supportedMediaTypes 被支持的媒体类型 -->
+				<property name="supportedMediaTypes">
+					<list>
+						<value>application/json;charset=UTF-8</value>
+						<value>text/json;charset=UTF-8</value>
+						<value>text/html;charset=UTF-8</value>
+					</list>
+				</property>
+				<!-- objectMapper 序列化json -->
+				<property name="objectMapper" ref="jacksonObjectMapper" />
+			</bean>
+		</mvc:message-converters>
+
+	</mvc:annotation-driven>
+	<mvc:default-servlet-handler />
+
+
+
+	<!-- 对里面的字段进行配置 一个是null字段 不再显示 一个日期类型格式化 -->
+	<bean class="com.fasterxml.jackson.databind.ObjectMapper" id="jacksonObjectMapper">
+		<property name="serializationInclusion">
+			<value type="com.fasterxml.jackson.annotation.JsonInclude.Include">NON_NULL</value>
+		</property>
+		<property name="dateFormat">
+			<bean class="java.text.SimpleDateFormat">
+				<constructor-arg type="java.lang.String" value="yyyy-MM-dd HH:mm:ss" />
+			</bean>
+		</property>
+	</bean>
+
+
+	<!-- 定义视图解析器 -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/cargo/export/list.action" />
+			<bean class="com.lanou.filter.TimerInterceptor" />
+		</mvc:interceptor>
+		<mvc:interceptor>
+			<mvc:mapping path="/cargo/packinglist/list.action" />
+			<bean class="com.lanou.filter.TimerInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/**"/>
+			<bean class="com.lanou.filter.TimerInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
+	
+
+</beans>
