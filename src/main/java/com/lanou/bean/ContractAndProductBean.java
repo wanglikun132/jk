@@ -10,6 +10,7 @@ public class ContractAndProductBean implements Serializable {
 	 * 合同货物编号
 	 */
 	private String contractproductid;
+	
 	/**
 	 * 客户名称
 	 */
